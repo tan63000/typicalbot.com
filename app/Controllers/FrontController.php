@@ -8,4 +8,8 @@ class FrontController extends Controller
 	{
 		return $this->view->render($response, 'front/home.twig');
 	}
+	// Legal
+	public function guidelines($request, $response) {
+		return $this->view->render($response, 'front/legal/guidelines.twig');
+	}
 }
