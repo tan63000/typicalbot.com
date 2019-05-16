@@ -16,7 +16,8 @@ $container['view'] = function($container) {
 	]);
 
 	// Force HTTPS
-	$uri = new \Slim\Http\Uri($uri->getScheme(), $uri->getHost(), 443, $uri->getPath(), $uri->getQuery(), $uri->getFragment());
+	$originalUri = $container->request->getUri();
+	$uri = new \Slim\Http\Uri($originalUri->getScheme(), $originalUri->getHost(), 443, $originalUri->getPath(), $originalUri->getQuery(), $originalUri->getFragment());
 
 	$view->addExtension(new \Slim\Views\TwigExtension(
 		$container->router,
